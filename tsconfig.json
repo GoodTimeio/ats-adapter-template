@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "declaration": true,
+        "incremental": true,
+        "strict": true,
+        "strictNullChecks": true,
+        "sourceMap": true,
+        "paths": {
+            "@api/*": ["src/api/*"]
+        },
+
+        "baseUrl": ".",
+        "outDir": "dist",
+
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "lib": ["esnext", "es5", "es6", "es7"],
+        "types": ["node", "jest"]
+    },
+    "include": ["src/**/*.ts", "tests/**/*.ts"],
+    "exclude": ["node_modules"]
+}
+
