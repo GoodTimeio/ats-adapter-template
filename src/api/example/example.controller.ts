@@ -1,12 +1,11 @@
-import { Controller, Get, HttpStatus, Res } from '@nestjs/common';
-import { Response } from 'express';
+import { Controller, Get } from '@nestjs/common';
 
 @Controller('')
 export class ExampleController {
     @Get('')
-    root(@Res() res: Response) {
-        return res.status(HttpStatus.OK).json({
+    root() {
+        return {
             data: 'hello world',
-        });
+        };
     }
 }
