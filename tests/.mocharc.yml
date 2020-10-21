@@ -1,9 +1,0 @@
-recursive: true
-require:
-  - 'ts-node/register'
-  - 'tsconfig-paths/register'
-  - 'source-map-support/register'
-ui: bdd
-color: true
-extension:
-  - ts
