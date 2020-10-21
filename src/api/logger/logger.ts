@@ -18,33 +18,23 @@ export class Logger implements LoggerService {
                 extras.path = getClsValue('path');
                 extras.method = getClsValue('method');
                 extras.reqStart = getClsValue('reqStart');
-
-                // Goodtime specific values based on request
-                extras.org = getClsValue('orgDomain');
-                extras.userId = getClsValue('userId');
-
-                // GoodTime employee using Service Session
-                extras.gtUser = getClsValue('gtUser');
-                extras.gtUser = getClsValue('gtUserId');
-                extras.apiKeyId = getClsValue('apiKeyId');
-
                 return extras;
             },
         });
     }
     log(message: string, context: string) {
-        log.info(message, { context: context });
+        log.info(message, { context });
     }
     error(message: string, trace: string) {
         log.error(message, trace);
     }
     warn(message: string, context: string) {
-        log.warn(message, { context: context });
+        log.warn(message, { context });
     }
     debug(message: string, context: string) {
-        log.debug(message, { context: context });
+        log.debug(message, { context });
     }
     verbose(message: string, context: string) {
-        log.verbose(message, { context: context });
+        log.verbose(message, { context });
     }
 }

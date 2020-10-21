@@ -14,7 +14,7 @@ if (process.env.NODE_ENV !== 'production') {
 async function bootstrap() {
     const app = await NestFactory.create<NestExpressApplication>(AppModule, {});
 
-    const namespace = createNamespace('goodtime');
+    const namespace = createNamespace('goodtime-ats-adapter');
     setClsNameSpace(namespace);
 
     //retrieve Logger definition from App Module imports

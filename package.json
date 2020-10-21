@@ -1,27 +1,28 @@
 {
-    "name": "goodtime-node-project-template",
+    "name": "goodtime-ats-adapter-template",
     "version": "0.0.0",
-    "description": "This is a boilerplate project for Goodtime projects",
-    "main": "main.ts",
+    "description": "This is a boilerplate project for GoodTime ATS Adapters.",
+    "main": "src/main.ts",
     "engines": {
         "node": "12.15.0",
         "npm": "6.12.0"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/GoodTimeio/goodtime-node-template.git"
+        "url": "https://github.com/GoodTimeio/ats-adapter-template"
     },
     "keywords": [
         "boilerplate",
         "node",
-        "goodtime"
+        "goodtime",
+        "ats"
     ],
     "author": "Goodtime Engineering",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/GoodTimeio/goodtime-node-template/issues"
+        "url": "https://github.com/GoodTimeio/ats-adapter-template/issues"
     },
-    "homepage": "https://github.com/GoodTimeio/goodtime-node-template#readme",
+    "homepage": "https://github.com/GoodTimeio/ats-adapter-template#readme",
     "dependencies": {
         "@goodtimeio/node-logger": "^1.7.0",
         "@nestjs/common": "7.3.2",
