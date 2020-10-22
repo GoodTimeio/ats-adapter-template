@@ -7,7 +7,7 @@ export interface Candidate {
     updatedAt?: string;
     givenName: string;
     familyName: string;
-    nickName?: string;
+    nickname?: string;
     title?: string;
     company?: string;
     photoUrl?: string;

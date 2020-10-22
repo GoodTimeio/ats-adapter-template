@@ -9,11 +9,6 @@ import { Transform } from 'class-transformer';
  */
 export class BaseGetRequestQueryParamsDTO {
     @IsOptional()
-    @Transform((value) => new Date(value))
-    @IsDate()
-    since?: Date;
-
-    @IsOptional()
     @Transform((value) => value === 'true')
     @IsBoolean()
     rawResponse = false;
@@ -27,6 +22,11 @@ export class BaseGetRequestQueryParamsDTO {
  * Check API Docs for detail: https://goodtime-ats-adapter.docs.stoplight.io/api-reference
  */
 export class BasePaginatedGetRequestQueryParamsDTO extends BaseGetRequestQueryParamsDTO {
+    @IsOptional()
+    @Transform((value) => new Date(value))
+    @IsDate()
+    since?: Date;
+
     @IsOptional()
     @Transform(parseInt)
     @Min(0)
