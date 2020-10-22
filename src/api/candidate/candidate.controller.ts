@@ -5,57 +5,58 @@ import { IsString, IsOptional, IsBoolean } from 'class-validator';
 import { ReqHeader } from '@api/header.decorator';
 import { BaseHeadersDTO } from '@api/headers.dto';
 
-class ApplicationGetQueryParamsDTO extends BaseGetRequestQueryParamsDTO {
+class CandidateGetQueryParamsDTO extends BaseGetRequestQueryParamsDTO {
+    @IsOptional()
+    @Transform((value) => value === 'true')
+    @IsBoolean()
+    includeResume = false;
+}
+
+class CandidatesPaginatedGetQueryParamsDTO extends BasePaginatedGetRequestQueryParamsDTO {
     @IsOptional()
     @IsString()
-    candidateId?: string;
+    email?: string;
+
+    @IsOptional()
+    @IsString()
+    jobId?: string;
+
+    @IsOptional()
+    @IsString()
+    stageId?: string;
 
     @IsOptional()
     @Transform((value) => value === 'true')
     @IsBoolean()
-    includeHiringMemberIds = false;
+    includeResume = false;
 }
 
-class ApplicationsPaginatedGetQueryParamsDTO extends BasePaginatedGetRequestQueryParamsDTO {
-    @IsOptional()
-    @IsString()
-    candidateId?: string;
-
-    @IsOptional()
-    @Transform((value) => value === 'true')
-    @IsBoolean()
-    includeHiringMemberIds = false;
-}
-
-@Controller('applications')
-export class ApplicationController {
-    @Get(':applicationId')
+@Controller('candidates')
+export class CandidateController {
+    @Get(':candidateId')
     findOne(
-        @Param('applicationId') applicationId: string,
-        @Query() query: ApplicationGetQueryParamsDTO,
+        @Param('candidateId') candidateId: string,
+        @Query() query: CandidateGetQueryParamsDTO,
         @ReqHeader(BaseHeadersDTO) headers: BaseHeadersDTO
     ) {
         return {
-            message: `Found an Application with id ${applicationId}`,
+            message: `Found an Candidate with id ${candidateId}`,
             data: {
-                // of type Application
+                // of type Candidate
             },
         };
     }
 
     @Get()
-    findAll(
-        @Query() query: ApplicationsPaginatedGetQueryParamsDTO,
-        @ReqHeader(BaseHeadersDTO) headers: BaseHeadersDTO
-    ) {
+    findAll(@Query() query: CandidatesPaginatedGetQueryParamsDTO, @ReqHeader(BaseHeadersDTO) headers: BaseHeadersDTO) {
         return {
-            message: `Returning ${query.maxResults} Applications`,
+            message: `Returning ${query.maxResults} Candidates`,
             pagination: {
                 next: query.next + '+',
                 maxResults: query.maxResults,
             },
             data: [
-                // of type Application[]
+                // of type Candidate[]
             ],
         };
     }
