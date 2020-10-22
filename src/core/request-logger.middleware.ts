@@ -1,7 +1,7 @@
 import { Injectable, NestMiddleware, ExecutionContext, CallHandler } from '@nestjs/common';
 import { Request, Response } from 'express';
 import { fromEvent } from 'rxjs';
-import { Logger } from 'src/logger/logger.service';
+import { Logger } from 'src/core/logger.service';
 
 /**
  * Emits logs per request:

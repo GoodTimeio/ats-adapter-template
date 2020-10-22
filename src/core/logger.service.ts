@@ -1,6 +1,6 @@
 import { Injectable, LoggerService } from '@nestjs/common';
 import log, { init } from '@goodtimeio/node-logger';
-import { ClsService } from 'src/logger/cls/cls.service';
+import { ClsService } from 'src/core/cls.service';
 
 /**
  * Provides access to logger.

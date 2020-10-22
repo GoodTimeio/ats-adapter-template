@@ -1,10 +1,14 @@
 import { Request, Response } from 'express';
 import { Injectable, NestMiddleware } from '@nestjs/common';
-import { ClsService } from 'src/logger/cls/cls.service';
+import { ClsService } from 'src/core/cls.service';
 import { v4 as uuid } from 'uuid';
 
 /**
  * Records request specific data (ex: ip, path, method) inside a cls context.
+ *
+ * The Logger emits these fields in every log.
+ *
+ * @see logger.service.ts
  */
 @Injectable()
 export class RequestRecorderMiddleware implements NestMiddleware {
