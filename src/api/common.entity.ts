@@ -47,8 +47,3 @@ interface FileContent {
     fileContentType: string;
     category: FileCategory;
 }
-
-export interface Link {
-    type: string;
-    value: string;
-}

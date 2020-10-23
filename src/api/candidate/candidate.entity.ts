@@ -1,5 +1,10 @@
 import { Application } from '@api/application/application.entity';
-import { Email, File, Link, PhoneNumbers } from '@api/common.entity';
+import { Email, File, PhoneNumbers } from '@api/common.entity';
+
+interface Link {
+    type: string;
+    value: string;
+}
 
 export interface Candidate {
     id: string;

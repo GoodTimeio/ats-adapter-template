@@ -11,5 +11,6 @@ export interface User {
     photoUrl?: string;
     emails: Email[];
     phoneNumbers?: PhoneNumbers[];
-    status?: 'active' | 'archived';
+    status: 'active' | 'archived';
+    settings?: Record<string, unknown>;
 }
