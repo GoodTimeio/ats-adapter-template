@@ -1,10 +1,3 @@
-TODO:
-
-* Pull Docker config from node-template once test & prod steps is ready there
-* Decide how we're going to share node-logger
-    * Open sourcing node-logger is the easiest solution, but are we even going to open-source the
-        adapter template? If not, we could share zips of both.
-
 # GoodTime ATS Adapter Template
 
 A boilerplate for those looking to implement [the ATS Adapter API](https://goodtime-ats-adapter.docs.stoplight.io/).
@@ -17,12 +10,13 @@ We will try our best to keep the two in sync, but being only human 😞 , we mig
 If you have a suggestion or you're needing to make significant changes to the Adapter template, please bring it up to us (ping us on Slack, submit a PR, file an Issue, send us an email) so we know about your issues. This way, we can start thinking about ways to update the Adapter template to be as frictionless as possible.
 
 ## Libraries
-- Node: 12.15.0
-- NPM: 6.12.0
 - [Typescript](https://www.typescriptlang.org) environment for building better Javascript
     - [Clean Code](https://github.com/labs42io/clean-code-typescript/blob/master/README.md) guideline for writing great Typescript
 - [Nest](https://docs.nestjs.com/) is a framework for building efficient, scalable Node.js server-side applications
 - [Jest](https://jestjs.io) is a delightful JavaScript Testing Framework with a focus on simplicity.
+
+## Pre-reqs
+- Install Node v12.15.0 and NPM v6.12.0 on your machine.
 
 ## Running Locally
 - Run in command line:

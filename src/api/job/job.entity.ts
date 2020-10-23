@@ -23,11 +23,10 @@ export interface Job {
     departments: Department[];
     keywords?: string[];
 
-    // TODO decrease amount of info needed to pass back and forth
-    jobAdmins?: User[];
-    hiringManagers?: User[];
-    interviewers?: User[];
-    recruiters?: User[];
-    coordinators?: User[];
-    sourcers?: User[];
+    jobAdmins?: Pick<User, 'id'>[];
+    hiringManagers?: Pick<User, 'id'>[];
+    interviewers?: Pick<User, 'id'>[];
+    recruiters?: Pick<User, 'id'>[];
+    coordinators?: Pick<User, 'id'>[];
+    sourcers?: Pick<User, 'id'>[];
 }
