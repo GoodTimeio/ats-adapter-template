@@ -9,6 +9,11 @@ TODO:
 
 A boilerplate for those looking to implement [the ATS Adapter API](https://goodtime-ats-adapter.docs.stoplight.io/).
 
+The query parameters and the headers are not commented in this Adapter template. Plase check the API docs to learn more about them, since it's easier for us to maintain all the comments in one place.
+
+Do note that the ATS Adapter API docs is the source of truth, not this adapter template! Please make sure that the template is up to date with the API docs.
+We will try our best to keep the two in sync, but being only human 😞, we might miss a couple of things here and there. If you notice that this Adapter template is not in sync with the API docs, feel free to either let us know or submit a pull request--we prefer the latter. If you have a suggestion or you're needing to make significant changes to the Adapter template, please bring it up to us (ping us on Slack, submit a PR, file an Issue, send us an email) so we know about your issues. This way, we can start thinking about ways to update the Adapter template to be as frictionless as possible.
+
 ## Libraries
 - Node: 12.15.0
 - NPM: 6.12.0
