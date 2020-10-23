@@ -22,7 +22,6 @@ export interface Job {
     offices: Office[];
     departments: Department[];
     keywords?: string[];
-    // update docs as well
 
     jobAdmins?: User[];
     hiringManagers?: User[];

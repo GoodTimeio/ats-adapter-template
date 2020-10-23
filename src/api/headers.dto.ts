@@ -9,18 +9,23 @@ import { Expose } from 'class-transformer';
  */
 export class BaseHeadersDTO {
     @Expose()
-    @IsString()
     authorization!: string;
 
     // TODO: If you are an ATS, delete the following header.
     // Only ATS Adapter built and operated by GoodTime use the following header.
-    @IsString()
+    @IsString({ message: 'atsendpoint header must be set' })
     @Expose({ name: 'atsendpoint' })
     atsEndpoint!: string;
 
     // TODO: If you are an ATS, delete the following header.
     // Only ATS Adapter built and operated by GoodTime use the following header.
-    @IsString()
+    @IsString({ message: 'atsuibaseurl header must be set' })
     @Expose({ name: 'atsuibaseurl' })
     atsUiBaseUrl!: string;
+}
+
+export class BaseHeaderWithOnBehalfOf extends BaseHeadersDTO {
+    @IsString({ message: 'on-behalf-of header must be set' })
+    @Expose({ name: 'on-behalf-of' })
+    onBehalfOf!: string;
 }
