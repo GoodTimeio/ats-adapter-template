@@ -17,12 +17,13 @@ export interface Job {
     createdAt?: string;
     updatedAt?: string;
     closedAt?: string;
-    status: 'open' | 'closed' | 'draft' | 'pending' | 'rejected';
+    status: 'open' | 'closed' | 'draft';
     name: string;
     offices: Office[];
     departments: Department[];
     keywords?: string[];
 
+    // TODO decrease amount of info needed to pass back and forth
     jobAdmins?: User[];
     hiringManagers?: User[];
     interviewers?: User[];

@@ -24,7 +24,7 @@ export class BaseHeadersDTO {
     atsUiBaseUrl!: string;
 }
 
-export class BaseHeaderWithOnBehalfOf extends BaseHeadersDTO {
+export class BaseHeaderWithOnBehalfOfDTO extends BaseHeadersDTO {
     @IsString({ message: 'on-behalf-of header must be set' })
     @Expose({ name: 'on-behalf-of' })
     onBehalfOf!: string;

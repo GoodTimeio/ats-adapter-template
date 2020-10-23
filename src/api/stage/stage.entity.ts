@@ -3,7 +3,7 @@ export interface Stage {
     createdAt?: string;
     updatedAt?: string;
     name: string;
-    status: 'open' | 'closed' | 'draft' | 'pending' | 'rejected';
+    status: 'open' | 'closed' | 'draft';
     type?: string;
     jobId?: string;
 }
