@@ -8,7 +8,7 @@ export class EmailNoteController {
     @Post()
     create(
         @ReqHeader(BaseHeaderWithOnBehalfOfDTO) headers: BaseHeaderWithOnBehalfOfDTO,
-        @Body() email: CreateEmailNoteDTO
+        @Body() body: CreateEmailNoteDTO
     ) {
         return {
             message: `Posted the Email Note on behalf of ${headers.onBehalfOf}`,

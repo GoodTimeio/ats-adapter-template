@@ -5,16 +5,6 @@ import { ReqHeader } from '@api/header.decorator';
 import { BaseHeadersDTO, BaseHeaderWithOnBehalfOfDTO } from '@api/headers.dto';
 import { CreateScheduledPanelDTO, UpdateScheduledPanelDTO } from '@api/scheduled-panel/scheduled-panel.dto';
 
-class ScheduledPanelGetQueryParamsDTO extends BaseGetRequestQueryParamsDTO {
-    @IsOptional()
-    @IsString()
-    candidateId?: string;
-
-    @IsOptional()
-    @IsString()
-    applicationId?: string;
-}
-
 class ScheduledPanelsPaginatedGetQueryParamsDTO extends BasePaginatedGetRequestQueryParamsDTO {
     @IsOptional()
     @IsString()
@@ -30,7 +20,7 @@ export class ScheduledPanelController {
     @Get(':scheduledPanelId')
     findOne(
         @Param('scheduledPanelId') scheduledPanelId: string,
-        @Query() query: ScheduledPanelGetQueryParamsDTO,
+        @Query() query: BaseGetRequestQueryParamsDTO,
         @ReqHeader(BaseHeadersDTO) headers: BaseHeadersDTO
     ) {
         return {
@@ -61,7 +51,7 @@ export class ScheduledPanelController {
     @Delete(':scheduledPanelId')
     delete(
         @Param('scheduledPanelId') scheduledPanelId: string,
-        @Query() query: ScheduledPanelGetQueryParamsDTO,
+        @Query() query: BaseGetRequestQueryParamsDTO,
         @ReqHeader(BaseHeaderWithOnBehalfOfDTO) headers: BaseHeaderWithOnBehalfOfDTO
     ) {
         return {
@@ -74,7 +64,7 @@ export class ScheduledPanelController {
 
     @Post()
     create(
-        @Body() query: CreateScheduledPanelDTO,
+        @Body() body: CreateScheduledPanelDTO,
         @ReqHeader(BaseHeaderWithOnBehalfOfDTO) headers: BaseHeaderWithOnBehalfOfDTO
     ) {
         return {
@@ -88,7 +78,7 @@ export class ScheduledPanelController {
     @Put(':scheduledPanelId')
     update(
         @Param('scheduledPanelId') scheduledPanelId: string,
-        @Body() query: UpdateScheduledPanelDTO,
+        @Body() body: UpdateScheduledPanelDTO,
         @ReqHeader(BaseHeaderWithOnBehalfOfDTO) headers: BaseHeaderWithOnBehalfOfDTO
     ) {
         return {
