@@ -23,10 +23,10 @@ export interface Job {
     departments: Department[];
     keywords?: string[];
 
-    jobAdmins?: Pick<User, 'id'>[];
-    hiringManagers?: Pick<User, 'id'>[];
-    interviewers?: Pick<User, 'id'>[];
-    recruiters?: Pick<User, 'id'>[];
-    coordinators?: Pick<User, 'id'>[];
-    sourcers?: Pick<User, 'id'>[];
+    jobAdmins?: User[];
+    hiringManagers?: User[];
+    interviewers?: User[];
+    recruiters?: User[];
+    coordinators?: User[];
+    sourcers?: User[];
 }
