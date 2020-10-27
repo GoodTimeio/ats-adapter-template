@@ -11,6 +11,12 @@ We will try our best to keep the two in sync, but being only human 😞 , we mig
 
 If you have a suggestion or you're needing to make significant changes to the Adapter template, please bring it up to us (ping us on Slack, submit a PR, file an Issue, send us an email) so we know about your issues. This way, we can start thinking about ways to update the Adapter template to be as frictionless as possible.
 
+# What to implement
+
+Under src > api, there are entities such as `application`, `candidate`, `email-note`, etc. Implement the methods in the various controllers for them. Observe that you can use [nestjs service](https://docs.nestjs.com/providers#services) to make organizing and testing your code easy.
+
+Note that the logger is available via dependency injection. See `application.controller.ts` for an example on how to use it.
+
 ## Libraries
 - [Typescript](https://www.typescriptlang.org) environment for building better Javascript
     - [Clean Code](https://github.com/labs42io/clean-code-typescript/blob/master/README.md) guideline for writing great Typescript

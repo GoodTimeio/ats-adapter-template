@@ -7,8 +7,10 @@ import { JobController } from './job/job.controller';
 import { ScheduledPanelController } from './scheduled-panel/scheduled-panel.controller';
 import { StageController } from './stage/stage.controller';
 import { UserController } from '@api/user/user.controller';
+import { CoreModule } from 'src/core/core.module';
 
 @Module({
+    imports: [CoreModule],
     controllers: [
         ApplicationController,
         CandidateController,

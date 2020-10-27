@@ -4,6 +4,7 @@ import { Transform } from 'class-transformer';
 import { IsString, IsOptional, IsBoolean } from 'class-validator';
 import { ReqHeader } from '@api/header.decorator';
 import { BaseHeadersDTO } from '@api/headers.dto';
+import { Logger } from 'src/core/logger.service';
 
 class ApplicationGetQueryParamsDTO extends BaseGetRequestQueryParamsDTO {
     @IsOptional()
@@ -29,12 +30,18 @@ class ApplicationsPaginatedGetQueryParamsDTO extends BasePaginatedGetRequestQuer
 
 @Controller('applications')
 export class ApplicationController {
+    constructor(private logger: Logger) {}
+
     @Get(':applicationId')
     findOne(
         @Param('applicationId') applicationId: string,
         @Query() query: ApplicationGetQueryParamsDTO,
         @ReqHeader(BaseHeadersDTO) headers: BaseHeadersDTO
     ) {
+        this.logger.log('an example log');
+        this.logger.warn('an example log');
+        this.logger.debug('an example log');
+        this.logger.error('an example log');
         return {
             message: `Found an Application with id ${applicationId}`,
             data: {
