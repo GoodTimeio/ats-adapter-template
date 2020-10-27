@@ -1,5 +1,8 @@
 name: test
 
+env:
+  GOODTIME_NPM_TOKEN: ${{secrets.GOODTIME_NPM_TOKEN}}
+
 on:
   push:
     branches:

@@ -1,3 +1,5 @@
+![build](https://github.com/GoodTimeio/ats-adapter-template/workflows/test/badge.svg?branch=main)
+
 # GoodTime ATS Adapter Template
 
 A boilerplate for those looking to implement [the ATS Adapter API](https://goodtime-ats-adapter.docs.stoplight.io/).
@@ -17,6 +19,7 @@ If you have a suggestion or you're needing to make significant changes to the Ad
 
 ## Pre-reqs
 - Install Node v12.15.0 and NPM v6.12.0 on your machine.
+- Set `GOODTIME_NPM_TOKEN` env variable to a Github developer token with read package permission. This is needed to authenticate with Github's package server.
 
 ## Running Locally
 - Run in command line:
