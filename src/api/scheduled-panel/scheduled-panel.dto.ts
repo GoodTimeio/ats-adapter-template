@@ -47,6 +47,10 @@ class CreateScheduledEventDTO {
     @IsInstance(Array)
     @ArrayMinSize(1)
     interviewers!: Interviewer[];
+
+    @IsOptional()
+    @IsString()
+    externalEventId?: string;
 }
 
 export class CreateScheduledPanelDTO {

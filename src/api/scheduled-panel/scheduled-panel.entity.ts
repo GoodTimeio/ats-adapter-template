@@ -9,6 +9,7 @@ export interface ScheduledEvent {
     location?: string;
     status: 'confirmed' | 'canceled';
     interviewStepId?: string;
+    externalEventId?: string;
     interviewers: (Pick<User, 'id' | 'emails'> & {
         responseStatus: 'accepted' | 'declined' | 'needs_action' | 'tentative';
     })[];
