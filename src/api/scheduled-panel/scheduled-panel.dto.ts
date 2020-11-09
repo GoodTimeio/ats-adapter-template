@@ -19,8 +19,8 @@ class Interviewer {
     email!: string;
 
     @IsString()
-    @IsIn(['accepted', 'declined', 'needs_action', 'tentative'])
-    responseStatus!: 'accepted' | 'declined' | 'needs_action' | 'tentative';
+    @IsIn(['accepted', 'declined', 'needsAction', 'tentative'])
+    responseStatus!: 'accepted' | 'declined' | 'needsAction' | 'tentative';
 }
 
 class CreateScheduledEventDTO {
