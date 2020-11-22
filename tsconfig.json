@@ -5,6 +5,7 @@
         "moduleResolution": "node",
         "declaration": true,
         "incremental": true,
+        "noUncheckedIndexedAccess": true,
         "strict": true,
         "strictNullChecks": true,
         "sourceMap": true,
