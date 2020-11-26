@@ -12,7 +12,7 @@ import { Logger } from 'src/core/logger.service';
 export class RequestLoggerMiddleware implements NestMiddleware {
     constructor(private logger: Logger) {}
 
-    use(req: Request, res: Response, next: Function) {
+    use(req: Request, res: Response, next: () => void) {
         this.logger.log({ message: 'REQUEST' });
         const now = Date.now();
 

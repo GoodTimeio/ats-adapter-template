@@ -11,20 +11,12 @@ export class AllExceptionsFilter implements ExceptionFilter {
     catch(exception: unknown, host: ArgumentsHost) {
         const ctx = host.switchToHttp();
         const response = ctx.getResponse();
-
-        let errorBody: object = { error: 'unknown error occurred' };
-        if (exception instanceof HttpException) {
-            const exceptionResponse = exception.getResponse();
-            if (typeof exceptionResponse !== 'string') {
-                errorBody = exceptionResponse;
-            } else {
-                errorBody = { error: exceptionResponse };
-            }
-        }
+        const errorBody =
+            exception instanceof HttpException ? exception.getResponse() : { error: 'unknown error occurred' };
 
         const status = exception instanceof HttpException ? exception.getStatus() : HttpStatus.INTERNAL_SERVER_ERROR;
         response.status(status).json({
-            ...errorBody,
+            ...(typeof errorBody === 'string' ? { error: errorBody } : errorBody),
             statusCode: status,
             requestId: this.cls.getClsValue('requestId'),
         });
