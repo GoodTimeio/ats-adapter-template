@@ -4,10 +4,6 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 import { Logger } from 'src/core/logger.service';
 import compression from 'compression';
 
-if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').config();
-}
-
 async function bootstrap() {
     const app = await NestFactory.create<NestExpressApplication>(AppModule, {});
     // retrieve Logger definition from App Module imports

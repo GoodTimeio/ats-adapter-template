@@ -14,7 +14,7 @@ import { v4 as uuid } from 'uuid';
 export class RequestRecorderMiddleware implements NestMiddleware {
     constructor(private cls: ClsService) {}
 
-    use(req: Request, res: Response, next: Function) {
+    use(req: Request, res: Response, next: () => void) {
         this.cls.getNamespace().run(() => {
             req.headers['x-request-id'] = req.headers['x-request-id'] ?? uuid();
 
