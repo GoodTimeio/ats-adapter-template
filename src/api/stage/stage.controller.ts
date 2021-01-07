@@ -3,6 +3,8 @@ import { Controller, Get, Query } from '@nestjs/common';
 import { IsString, IsOptional } from 'class-validator';
 import { ReqHeader } from '@api/header.decorator';
 import { BaseHeadersDTO } from '@api/headers.dto';
+import { Stage } from 'src/entities/stage';
+import { Response } from '@api/types';
 
 class StagesPaginatedGetQueryParamsDTO extends BasePaginatedGetRequestQueryParamsDTO {
     @IsOptional()
@@ -13,16 +15,17 @@ class StagesPaginatedGetQueryParamsDTO extends BasePaginatedGetRequestQueryParam
 @Controller('stages')
 export class StageController {
     @Get()
-    findAll(@Query() query: StagesPaginatedGetQueryParamsDTO, @ReqHeader(BaseHeadersDTO) headers: BaseHeadersDTO) {
+    async findAll(
+        @Query() query: StagesPaginatedGetQueryParamsDTO,
+        @ReqHeader(BaseHeadersDTO) headers: BaseHeadersDTO
+    ): Promise<Response<(Stage | unknown) /* replace with ATS's Stage rep. */[]>> {
         return {
             message: `Returning ${query.maxResults} Stages`,
             pagination: {
-                next: query.next + '+',
+                next: 0,
                 maxResults: query.maxResults,
             },
-            data: [
-                // of type Stage[]
-            ],
+            data: [],
         };
     }
 }

@@ -1,4 +1,4 @@
-import { Email, PhoneNumbers } from '@api/common.entity';
+import { Email, PhoneNumbers } from 'src/entities/common';
 
 export interface User {
     id: string;
@@ -13,4 +13,5 @@ export interface User {
     phoneNumbers?: PhoneNumbers[];
     status: 'active' | 'archived';
     settings?: Record<string, unknown>;
+    raw: unknown;
 }

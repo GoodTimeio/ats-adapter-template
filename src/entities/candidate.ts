@@ -1,5 +1,5 @@
-import { Application } from '@api/application/application.entity';
-import { Email, File, PhoneNumbers } from '@api/common.entity';
+import { Application } from 'src/entities/application';
+import { Email, File, PhoneNumbers } from 'src/entities/common';
 
 interface Link {
     type: string;
@@ -19,8 +19,11 @@ export interface Candidate {
     emails: Email[];
     phoneNumbers?: PhoneNumbers[];
     links?: Link[];
-    status?: 'active';
+    status: 'active';
     atsUrl: string;
     applications: Application[];
     files?: File[];
+    recruiterId?: string;
+    coordinatorId?: string;
+    raw: unknown;
 }

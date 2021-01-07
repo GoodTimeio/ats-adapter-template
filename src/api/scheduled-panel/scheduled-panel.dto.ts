@@ -9,7 +9,9 @@ import {
     IsIn,
     ArrayMinSize,
     IsEmail,
+    Validate,
 } from 'class-validator';
+import { ExtrasValidator } from './extras-validator';
 
 class Interviewer {
     @IsString()
@@ -48,9 +50,8 @@ class CreateScheduledEventDTO {
     @ArrayMinSize(1)
     interviewers!: Interviewer[];
 
-    @IsOptional()
     @IsString()
-    externalEventId?: string;
+    externalEventId!: string;
 }
 
 export class CreateScheduledPanelDTO {
@@ -84,19 +85,23 @@ export class CreateScheduledPanelDTO {
     scheduledEvents!: CreateScheduledEventDTO[];
 }
 
-class UpdateScheduledEventDTO extends CreateScheduledEventDTO {
+class UpdateDeleteScheduledEventDTO extends CreateScheduledEventDTO {
     @IsString()
-    id!: string;
+    @IsOptional() // if creating a new ScheduledEvent, id won't be specified
+    id?: string;
 }
 
-export class UpdateScheduledPanelDTO extends CreateScheduledPanelDTO {
+export class UpdateDeleteScheduledPanelDTO extends CreateScheduledPanelDTO {
     @IsString()
     id!: string;
 
     @IsDefined()
     @ValidateNested()
-    @Type(() => UpdateScheduledEventDTO)
+    @Type(() => UpdateDeleteScheduledEventDTO)
     @IsInstance(Array)
-    @ArrayMinSize(1)
-    scheduledEvents!: UpdateScheduledEventDTO[];
+    @ArrayMinSize(0)
+    scheduledEvents!: UpdateDeleteScheduledEventDTO[];
+
+    @Validate(ExtrasValidator)
+    extras: unknown;
 }

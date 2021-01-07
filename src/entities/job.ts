@@ -1,4 +1,4 @@
-import { User } from '@api/user/user.entity';
+import { User } from 'src/entities/user';
 
 interface Office {
     id?: string;
@@ -21,7 +21,7 @@ export interface Job {
     name: string;
     offices: Office[];
     departments: Department[];
-    keywords?: string[];
+    raw: unknown;
 
     jobAdmins?: User[];
     hiringManagers?: User[];
