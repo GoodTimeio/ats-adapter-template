@@ -5,6 +5,9 @@
         "ecmaVersion": 2020,
         "sourceType": "module"
     },
+    "plugins": [
+        "no-only-tests"
+    ],
     "rules": {
         "semi": ["error", "always"],
         "@typescript-eslint/explicit-function-return-type": "off",
@@ -19,6 +22,7 @@
         "@typescript-eslint/no-empty-function": [
             "error",
             { "allow": ["private-constructors", "protected-constructors"] }
-        ]
+        ],
+        "no-only-tests/no-only-tests": "error"
     }
 }

@@ -16,7 +16,7 @@ export interface PhoneNumbers {
 }
 
 export type File = FileUrl | FileContent;
-type FileCategory =
+export type FileCategory =
     | 'resume'
     | 'cover_letter'
     | 'other'
@@ -25,12 +25,12 @@ type FileCategory =
     | 'offer_packet'
     | 'offer_letter'
     | 'take_home_test';
-interface FileUrl {
+export interface FileUrl {
     filename: string;
-    fileurl: string;
+    fileUrl: string;
     category: FileCategory;
 }
-interface FileContent {
+export interface FileContent {
     filename: string;
     fileContent: string;
     fileContentEncoding:

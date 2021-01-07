@@ -3,89 +3,80 @@ import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/
 import { IsString, IsOptional } from 'class-validator';
 import { ReqHeader } from '@api/header.decorator';
 import { BaseHeadersDTO, BaseHeaderWithOnBehalfOfDTO } from '@api/headers.dto';
-import { CreateScheduledPanelDTO, UpdateScheduledPanelDTO } from '@api/scheduled-panel/scheduled-panel.dto';
+import { CreateScheduledPanelDTO, UpdateDeleteScheduledPanelDTO } from '@api/scheduled-panel/scheduled-panel.dto';
+import { Response } from '@api/types';
+import { ScheduledPanel } from 'src/entities/scheduled-panel';
 
 class ScheduledPanelsPaginatedGetQueryParamsDTO extends BasePaginatedGetRequestQueryParamsDTO {
     @IsOptional()
     @IsString()
     candidateId?: string;
 
-    @IsOptional()
     @IsString()
-    applicationId?: string;
+    applicationId!: string;
 }
 
 @Controller('scheduled_panels')
 export class ScheduledPanelController {
     @Get(':scheduledPanelId')
-    findOne(
+    async findOne(
         @Param('scheduledPanelId') scheduledPanelId: string,
         @Query() query: BaseGetRequestQueryParamsDTO,
         @ReqHeader(BaseHeadersDTO) headers: BaseHeadersDTO
-    ) {
+    ): Promise<Response<ScheduledPanel | unknown /* TODO replace with ATS's ScheduledPanel rep. */>> {
         return {
             message: `Found a ScheduledPanel with id ${scheduledPanelId}`,
-            data: {
-                // of type ScheduledPanel
-            },
+            data: {},
         };
     }
 
     @Get()
-    findAll(
+    async findAll(
         @Query() query: ScheduledPanelsPaginatedGetQueryParamsDTO,
         @ReqHeader(BaseHeadersDTO) headers: BaseHeadersDTO
-    ) {
+    ): Promise<Response<(ScheduledPanel | unknown) /* TODO replace with ATS's ScheduledPanel rep. */[]>> {
         return {
             message: `Returning ${query.maxResults} ScheduledPanels`,
             pagination: {
-                next: query.next + '+',
+                next: 0,
                 maxResults: query.maxResults,
             },
-            data: [
-                // of type ScheduledPanel[]
-            ],
+            data: [],
         };
     }
 
     @Delete(':scheduledPanelId')
-    delete(
+    async delete(
         @Param('scheduledPanelId') scheduledPanelId: string,
-        @Query() query: BaseGetRequestQueryParamsDTO,
+        @Body() body: UpdateDeleteScheduledPanelDTO,
         @ReqHeader(BaseHeaderWithOnBehalfOfDTO) headers: BaseHeaderWithOnBehalfOfDTO
-    ) {
+    ): Promise<Response<undefined>> {
         return {
             message: `Deleting a ScheduledPanel with id ${scheduledPanelId}`,
-            data: {
-                // of type ScheduledPanel
-            },
+            data: undefined,
         };
     }
 
     @Post()
-    create(
+    async create(
         @Body() body: CreateScheduledPanelDTO,
         @ReqHeader(BaseHeaderWithOnBehalfOfDTO) headers: BaseHeaderWithOnBehalfOfDTO
-    ) {
+    ): Promise<Response<ScheduledPanel | unknown /* TODO replace with ATS's ScheduledPanel rep. */>> {
         return {
             message: `Creating a ScheduledPanel`,
-            data: {
-                // of type ScheduledPanel
-            },
+            data: {},
         };
     }
 
     @Put(':scheduledPanelId')
-    update(
+    async update(
         @Param('scheduledPanelId') scheduledPanelId: string,
-        @Body() body: UpdateScheduledPanelDTO,
+        @Body() body: UpdateDeleteScheduledPanelDTO,
         @ReqHeader(BaseHeaderWithOnBehalfOfDTO) headers: BaseHeaderWithOnBehalfOfDTO
-    ) {
+    ): Promise<Response<ScheduledPanel | unknown /* TODO replace with ATS's ScheduledPanel rep. */>> {
         return {
             message: `Updating a ScheduledPanel with id ${scheduledPanelId}`,
-            data: {
-                // of type ScheduledPanel
-            },
+            data: {},
         };
     }
 }

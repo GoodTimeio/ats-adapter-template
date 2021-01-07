@@ -3,6 +3,8 @@ import { Controller, Get, Param, Query } from '@nestjs/common';
 import { IsString, IsOptional } from 'class-validator';
 import { ReqHeader } from '@api/header.decorator';
 import { BaseHeadersDTO } from '@api/headers.dto';
+import { Response } from '@api/types';
+import { User } from 'src/entities/user';
 
 class UsersPaginatedGetQueryParamsDTO extends BasePaginatedGetRequestQueryParamsDTO {
     @IsOptional()
@@ -13,11 +15,11 @@ class UsersPaginatedGetQueryParamsDTO extends BasePaginatedGetRequestQueryParams
 @Controller('users')
 export class UserController {
     @Get(':userId')
-    findOne(
+    async findOne(
         @Param('userId') userId: string,
         @Query() query: BaseGetRequestQueryParamsDTO,
         @ReqHeader(BaseHeadersDTO) headers: BaseHeadersDTO
-    ) {
+    ): Promise<Response<User | unknown /* TODO: Replace w/ ATS's specific User rep */>> {
         return {
             message: `Found a User with id ${userId}`,
             data: {
@@ -27,11 +29,14 @@ export class UserController {
     }
 
     @Get()
-    findAll(@Query() query: UsersPaginatedGetQueryParamsDTO, @ReqHeader(BaseHeadersDTO) headers: BaseHeadersDTO) {
+    async findAll(
+        @Query() query: UsersPaginatedGetQueryParamsDTO,
+        @ReqHeader(BaseHeadersDTO) headers: BaseHeadersDTO
+    ): Promise<Response<(User | unknown) /* TODO: Replace w/ ATS's specific User rep */[]>> {
         return {
             message: `Returning ${query.maxResults} Users`,
             pagination: {
-                next: query.next + '+',
+                next: 0,
                 maxResults: query.maxResults,
             },
             data: [

@@ -26,7 +26,7 @@ import { AllExceptionsFilter } from 'src/core/all-exception.filter';
     ],
 })
 export class AppModule implements NestModule {
-    configure(consumer: MiddlewareConsumer) {
+    configure(consumer: MiddlewareConsumer): void {
         consumer
             .apply(RequestRecorderMiddleware)
             .forRoutes('*')

@@ -6,4 +6,5 @@ export interface Stage {
     status: 'open' | 'closed' | 'draft';
     type?: string;
     jobId?: string;
+    raw: unknown;
 }

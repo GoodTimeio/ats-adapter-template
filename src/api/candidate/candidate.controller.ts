@@ -4,6 +4,8 @@ import { Transform } from 'class-transformer';
 import { IsString, IsOptional, IsBoolean } from 'class-validator';
 import { ReqHeader } from '@api/header.decorator';
 import { BaseHeadersDTO } from '@api/headers.dto';
+import { Candidate } from 'src/entities/candidate';
+import { Response } from '@api/types';
 
 class CandidateGetQueryParamsDTO extends BaseGetRequestQueryParamsDTO {
     @IsOptional()
@@ -34,30 +36,29 @@ class CandidatesPaginatedGetQueryParamsDTO extends BasePaginatedGetRequestQueryP
 @Controller('candidates')
 export class CandidateController {
     @Get(':candidateId')
-    findOne(
+    async findOne(
         @Param('candidateId') candidateId: string,
         @Query() query: CandidateGetQueryParamsDTO,
         @ReqHeader(BaseHeadersDTO) headers: BaseHeadersDTO
-    ) {
+    ): Promise<Response<Candidate | unknown /* TODO replace with ATS's Candidate rep. */>> {
         return {
             message: `Found an Candidate with id ${candidateId}`,
-            data: {
-                // of type Candidate
-            },
+            data: {},
         };
     }
 
     @Get()
-    findAll(@Query() query: CandidatesPaginatedGetQueryParamsDTO, @ReqHeader(BaseHeadersDTO) headers: BaseHeadersDTO) {
+    async findAll(
+        @Query() query: CandidatesPaginatedGetQueryParamsDTO,
+        @ReqHeader(BaseHeadersDTO) headers: BaseHeadersDTO
+    ): Promise<Response<(Candidate | unknown) /* TODO replace with ATS's Candidate rep. */[]>> {
         return {
             message: `Returning ${query.maxResults} Candidates`,
             pagination: {
-                next: query.next + '+',
+                next: 0,
                 maxResults: query.maxResults,
             },
-            data: [
-                // of type Candidate[]
-            ],
+            data: [],
         };
     }
 }

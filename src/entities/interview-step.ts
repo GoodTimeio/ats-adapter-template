@@ -2,13 +2,11 @@ export interface InterviewStep {
     id: string;
     createdAt?: string;
     updatedAt?: string;
+    stageId?: string;
     name: string;
     status: 'active' | 'archived';
     duration?: number;
     groupId?: string;
-    groupNumber?: string;
-    scorecard?: {
-        name: string;
-        url: string;
-    };
+    groupName?: string;
+    raw: unknown;
 }

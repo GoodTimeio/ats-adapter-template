@@ -10,7 +10,8 @@
         "strictNullChecks": true,
         "sourceMap": true,
         "paths": {
-            "@api/*": ["src/api/*"]
+            "@api/*": ["src/api/*"],
+            "src/*": ["src/*"]
         },
 
         "baseUrl": ".",

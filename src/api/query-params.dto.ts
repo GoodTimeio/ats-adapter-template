@@ -33,6 +33,9 @@ export class BasePaginatedGetRequestQueryParamsDTO extends BaseGetRequestQueryPa
     @IsNumber()
     maxResults = 200;
 
+    // Feel free to update types & constraints to w/e works for your ATS Adapter.
+    // Must be optional tho as the first call to a paginated resource
+    // will not have the `next` field set.
     @IsOptional()
     @IsString()
     next?: string;

@@ -24,9 +24,7 @@ module.exports = {
     coverageDirectory: 'coverage',
 
     // An array of regexp pattern strings used to skip coverage collection
-    // coveragePathIgnorePatterns: [
-    //   "/node_modules/"
-    // ],
+    coveragePathIgnorePatterns: ['/node_modules/'],
 
     // Indicates which provider should be used to instrument code for coverage
     // coverageProvider: 'v8',
@@ -64,9 +62,7 @@ module.exports = {
     // maxWorkers: "50%",
 
     // An array of directory names to be searched recursively up from the requiring module's location
-    // moduleDirectories: [
-    //   "node_modules"
-    // ],
+    moduleDirectories: ['node_modules', '<rootDir>'],
 
     // An array of file extensions your modules use
     // moduleFileExtensions: [
@@ -117,7 +113,7 @@ module.exports = {
     // rootDir: './tests',
 
     // A list of paths to directories that Jest should use to search for files in
-    roots: ['<rootDir>/tests'],
+    roots: ['<rootDir>'],
 
     // Allows you to use a custom runner instead of Jest's default test runner
     // runner: "jest-runner",
@@ -150,7 +146,7 @@ module.exports = {
     // ],
 
     // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
-    testPathIgnorePatterns: ['/node_modules/'],
+    testPathIgnorePatterns: ['/node_modules/', '/dist/'],
 
     // The regexp pattern or array of patterns that Jest uses to detect test files
     // testRegex: [],
