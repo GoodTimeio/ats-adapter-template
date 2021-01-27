@@ -22,6 +22,7 @@ export interface Job {
     offices: Office[];
     departments: Department[];
     raw: unknown;
+    customFields?: unknown;
 
     jobAdmins?: User[];
     hiringManagers?: User[];
