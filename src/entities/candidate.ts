@@ -10,6 +10,8 @@ export interface Candidate {
     id: string;
     createdAt?: string;
     updatedAt?: string;
+    raw?: unknown;
+    customFields?: unknown;
     givenName: string;
     familyName: string;
     nickname?: string;
@@ -25,5 +27,4 @@ export interface Candidate {
     files?: File[];
     recruiterId?: string;
     coordinatorId?: string;
-    raw: unknown;
 }

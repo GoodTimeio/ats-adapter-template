@@ -18,6 +18,7 @@ export interface ScheduledEvent {
 
 export interface ScheduledPanel {
     id: string;
+    raw?: unknown;
     applicationId: string;
 
     externalPanelId?: string;

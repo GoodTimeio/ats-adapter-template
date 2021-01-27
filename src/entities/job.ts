@@ -14,6 +14,8 @@ interface Department {
 
 export interface Job {
     id: string;
+    raw?: unknown;
+    customFields?: unknown;
     createdAt?: string;
     updatedAt?: string;
     closedAt?: string;
@@ -21,8 +23,6 @@ export interface Job {
     name: string;
     offices: Office[];
     departments: Department[];
-    raw: unknown;
-
     jobAdmins?: User[];
     hiringManagers?: User[];
     interviewers?: User[];

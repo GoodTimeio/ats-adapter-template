@@ -4,6 +4,7 @@ export interface User {
     id: string;
     createdAt?: string;
     updatedAt?: string;
+    raw?: unknown;
     givenName: string;
     familyName: string;
     nickname?: string;
@@ -13,5 +14,4 @@ export interface User {
     phoneNumbers?: PhoneNumbers[];
     status: 'active' | 'archived';
     settings?: Record<string, unknown>;
-    raw: unknown;
 }

@@ -2,6 +2,8 @@ export interface Application {
     id: string;
     createdAt?: string;
     updatedAt?: string;
+    raw?: unknown;
+    organizationId: string;
     jobName: string;
     jobId: string;
     stageName: string;
@@ -13,5 +15,4 @@ export interface Application {
     coordinatorId?: string;
     hiringManagerId?: string;
     sourcerId?: string;
-    raw: unknown;
 }
