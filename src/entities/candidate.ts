@@ -26,4 +26,5 @@ export interface Candidate {
     recruiterId?: string;
     coordinatorId?: string;
     raw: unknown;
+    customFields?: unknown;
 }

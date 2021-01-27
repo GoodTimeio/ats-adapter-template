@@ -9,4 +9,5 @@ export interface InterviewStep {
     groupId?: string;
     groupName?: string;
     raw: unknown;
+    unschedulable?: boolean;
 }
