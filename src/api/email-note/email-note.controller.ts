@@ -8,6 +8,9 @@ import { IsString } from 'class-validator';
 export class EmailNoteQuery {
     @IsString()
     candidateId!: string;
+
+    @IsString()
+    applicationId!: string;
 }
 
 @Controller('email_notes')
