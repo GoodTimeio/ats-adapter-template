@@ -32,9 +32,6 @@ class Email {
 }
 
 export class CreateEmailNoteDTO {
-    @IsString()
-    candidateId!: string;
-
     @IsDefined()
     @ValidateNested()
     @Type(() => Email)
