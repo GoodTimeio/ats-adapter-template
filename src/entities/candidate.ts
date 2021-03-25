@@ -1,10 +1,5 @@
 import { Application } from 'src/entities/application';
-import { Email, File, PhoneNumbers } from 'src/entities/common';
-
-interface Link {
-    type: string;
-    value: string;
-}
+import { Email, File, Link, PhoneNumbers } from 'src/entities/common';
 
 export interface Candidate {
     id: string;
