@@ -19,7 +19,7 @@ export interface Candidate {
     emails: Email[];
     phoneNumbers?: PhoneNumbers[];
     links?: Link[];
-    status: 'active';
+    status: 'active' | 'archived';
     atsUrl: string;
     applications: Application[];
     files?: File[];
